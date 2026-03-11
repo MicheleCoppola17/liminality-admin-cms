@@ -13,15 +13,10 @@ function parseBody(response) {
 }
 
 export async function apiRequest(path, options = {}) {
-  const token = localStorage.getItem('admin_access_token');
   const headers = {
     ...jsonHeaders,
     ...(options.headers || {}),
   };
-
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
 
   const response = await fetch(`${API_BASE_URL}${path}`, {
     ...options,
@@ -38,21 +33,6 @@ export async function apiRequest(path, options = {}) {
   }
 
   return body;
-}
-
-export async function loginRequest(email, password) {
-  return apiRequest('/auth/login', {
-    method: 'POST',
-    body: JSON.stringify({ email, password }),
-  });
-}
-
-export async function logoutRequest() {
-  try {
-    return await apiRequest('/auth/logout', { method: 'POST' });
-  } catch {
-    return null;
-  }
 }
 
 export async function fetchPosts() {
