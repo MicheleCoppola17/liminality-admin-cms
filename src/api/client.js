@@ -1,3 +1,5 @@
+import { auth } from '../firebase';
+
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:4000';
 
 const jsonHeaders = {
@@ -13,8 +15,17 @@ function parseBody(response) {
 }
 
 export async function apiRequest(path, options = {}) {
+  // Attach Firebase ID token if a user is signed in
+  const authHeaders = {};
+  const user = auth.currentUser;
+  if (user) {
+    const token = await user.getIdToken();
+    authHeaders['Authorization'] = `Bearer ${token}`;
+  }
+
   const headers = {
     ...jsonHeaders,
+    ...authHeaders,
     ...(options.headers || {}),
   };
 
@@ -34,6 +45,7 @@ export async function apiRequest(path, options = {}) {
 
   return body;
 }
+
 
 export async function fetchPosts() {
   return apiRequest('/posts');
