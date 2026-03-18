@@ -350,3 +350,155 @@ th {
 .topbar-logout-btn:hover {
   background: #f6f6f6;
 }
+
+/* -- Tag Picker -- */
+.tag-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-option {
+  padding: 6px 12px;
+  border: 1px solid #d5d5d5;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+  background: #fff;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.tag-option:hover {
+  border-color: #111;
+}
+
+.tag-option.selected {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+.tag-option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tag-help {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* -- Suggestions Menu -- */
+.suggestions-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  margin-top: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.suggestion-item {
+  padding: 10px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.suggestion-item:hover {
+  background: #f5f5f5;
+}
+
+.suggestion-item:not(:last-child) {
+  border-bottom: 1px solid #efefef;
+}
+
+/* -- Manage Tags Menu -- */
+.manage-tags-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 110;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  margin-top: 4px;
+  width: 240px;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 8px 0;
+}
+
+.manage-tags-header {
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 4px;
+}
+
+.manage-tag-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px 8px 16px;
+  font-size: 14px;
+  transition: background 0.15s;
+}
+
+.manage-tag-item:hover {
+  background: #f9f9f9;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #d5d5d5;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  padding: 0;
+  color: #444;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.icon-button:hover {
+  border-color: #111;
+  color: #111;
+  background: #f6f6f6;
+}
+
+.icon-button.small {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.icon-button.danger:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+  background: #fef2f2;
+}
+
+.empty-state {
+  padding: 24px 16px;
+  text-align: center;
+  color: #888;
+  font-size: 13px;
+}
